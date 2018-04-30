@@ -1,0 +1,28 @@
+# Project: Project2
+# Makefile created by Dev-C++ 5.5.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = 123.o
+LINKOBJ  = 123.o
+LIBS     = -L"D:/DEVC++/Dev-Cpp/MinGW32/lib" -L"D:/DEVC++/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc
+INCS     = -I"D:/DEVC++/Dev-Cpp/MinGW32/include"
+CXXINCS  = -I"D:/DEVC++/Dev-Cpp/MinGW32/include" -I"D:/DEVC++/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.7.2/include/c++"
+BIN      = Project2.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+123.o: 123.cpp
+	$(CC) -c 123.cpp -o 123.o $(CFLAGS)
